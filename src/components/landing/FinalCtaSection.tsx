@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 
 export function FinalCtaSection() {
   return (
@@ -17,29 +18,18 @@ export function FinalCtaSection() {
           Súmate a la conversación
         </h2>
         <p className="max-w-xl text-sm text-muted-foreground">
-          Síguenos para fechas y anuncios, o escríbenos si quieres proponer una
-          charla o colaborar con el evento.
+          Únete al grupo en Meetup para ver fechas, confirmar asistencia y estar
+          al tanto de anuncios y próximos encuentros.
         </p>
-        <div className="flex flex-wrap gap-3">
-          <Button asChild>
-            <a
-              href="https://www.instagram.com/devnighttalks/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Instagram
-            </a>
-          </Button>
-          <Button variant="outline" asChild>
-            <a
-              href="https://www.tiktok.com/@devnighttalks"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              TikTok
-            </a>
-          </Button>
-        </div>
+        <Button className={cn("landing-cta")} size="lg" asChild>
+          <a
+            href="https://www.meetup.com/dev-night-talks"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Unirse en Meetup
+          </a>
+        </Button>
       </div>
     </section>
   )
