@@ -24,7 +24,7 @@ export function HeroSection() {
         </p>
       </div>
       <Button className={cn("landing-cta")} size="lg" asChild>
-        <a href="#">
+        <a href="#final-cta">
           Join the Conversation
           <HugeiconsIcon
             icon={ArrowRight01Icon}

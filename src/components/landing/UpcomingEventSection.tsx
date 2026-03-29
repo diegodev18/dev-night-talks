@@ -4,6 +4,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Avatar,
   AvatarFallback,
+  AvatarImage,
 } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
@@ -18,6 +19,10 @@ export function UpcomingEventSection() {
         <Avatar
           className="size-52 ring-2 ring-primary/35 ring-offset-4 ring-offset-background sm:size-60"
         >
+          <AvatarImage
+            src="/image.png"
+            alt="Asistentes y organizadores en un meetup de Dev Night Talks"
+          />
           <AvatarFallback className="bg-muted text-lg font-medium text-muted-foreground">
             Comunidad
           </AvatarFallback>

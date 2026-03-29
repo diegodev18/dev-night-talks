@@ -1,6 +1,16 @@
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
+const nav = [
+  { label: "Inicio", href: "#" },
+  { label: "Eventos", href: "/agenda.html" },
+  { label: "Nosotros", href: "#about" },
+  { label: "Evento", href: "#evento" },
+  { label: "Programa", href: "#agenda" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Comunidad", href: "#partners" },
+] as const
+
 export function SiteHeader() {
   return (
     <header className="grid gap-6 border-b border-border pb-8 md:grid-cols-[auto_1fr_auto] md:items-center">
@@ -16,22 +26,15 @@ export function SiteHeader() {
         className="flex flex-wrap justify-start gap-1 md:justify-center"
         aria-label="Principal"
       >
-        <Button variant="ghost" size="sm" asChild>
-          <a href="#">Home</a>
-        </Button>
-        <Button variant="ghost" size="sm" asChild>
-          <a href="/agenda.html">Events</a>
-        </Button>
-        <Button variant="ghost" size="sm" asChild>
-          <a href="#evento">About</a>
-        </Button>
-        <Button variant="ghost" size="sm" asChild>
-          <a href="#partners">Community</a>
-        </Button>
+        {nav.map(({ label, href }) => (
+          <Button key={label} variant="ghost" size="sm" asChild>
+            <a href={href}>{label}</a>
+          </Button>
+        ))}
       </nav>
       <div className="flex md:justify-end">
         <Button className={cn("landing-cta")} size="default" asChild>
-          <a href="#">Join the Conversation</a>
+          <a href="#final-cta">Join the Conversation</a>
         </Button>
       </div>
     </header>
