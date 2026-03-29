@@ -132,6 +132,133 @@
   .landing-cta:hover {
     opacity: 0.92;
   }
+
+  /* Fondo arcoíris: visible detrás del hero, bordes que vuelven al negro del tema */
+  .landing-rainbow-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background: var(--background);
+  }
+
+  /* Halo principal: centrado hacia arriba (zona del hero), difuso, fundido en los bordes */
+  .landing-rainbow-backdrop::before {
+    content: "";
+    position: absolute;
+    left: 52%;
+    top: 22%;
+    width: min(115vmin, 1040px);
+    height: min(115vmin, 1040px);
+    margin-left: calc(min(115vmin, 1040px) * -0.5);
+    margin-top: calc(min(115vmin, 1040px) * -0.5);
+    background: conic-gradient(
+      from 0deg,
+      oklch(0.52 0.19 28),
+      oklch(0.52 0.18 88),
+      oklch(0.5 0.16 152),
+      oklch(0.5 0.18 210),
+      oklch(0.52 0.19 268),
+      oklch(0.52 0.18 312),
+      oklch(0.52 0.19 28)
+    );
+    filter: blur(88px);
+    opacity: 0.26;
+    animation: landing-rainbow-spin 40s linear infinite;
+    will-change: transform;
+    mask-image: radial-gradient(
+      ellipse 62% 62% at 50% 50%,
+      #000 0%,
+      transparent 78%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 62% 62% at 50% 50%,
+      #000 0%,
+      transparent 78%
+    );
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  /* Acentos en esquinas + viñeta suave solo en los bordes (no tapa el centro) */
+  .landing-rainbow-backdrop::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 130% 110% at 50% 45%,
+        transparent 0%,
+        transparent 58%,
+        color-mix(in oklch, var(--background) 55%, transparent) 88%,
+        var(--background) 100%
+      ),
+      radial-gradient(
+        ellipse 42% 36% at 10% 88%,
+        oklch(0.5 0.16 275 / 0.14) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        ellipse 38% 32% at 90% 14%,
+        oklch(0.52 0.16 35 / 0.12) 0%,
+        transparent 70%
+      ),
+      linear-gradient(
+        108deg,
+        transparent 48%,
+        oklch(0.52 0.14 195 / 0.08) 62%,
+        transparent 82%
+      );
+    background-size:
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      220% 220%;
+    animation: landing-rainbow-flow 20s ease-in-out infinite alternate;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  @keyframes landing-rainbow-spin {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+
+  @keyframes landing-rainbow-flow {
+    0% {
+      background-position:
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        12% 40%;
+    }
+    100% {
+      background-position:
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        88% 60%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .landing-rainbow-backdrop::before,
+    .landing-rainbow-backdrop::after {
+      animation: none;
+    }
+    .landing-rainbow-backdrop::before {
+      opacity: 0.14;
+    }
+    .landing-rainbow-backdrop::after {
+      background-position:
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        50% 50%;
+    }
+  }
 }
 
 @layer base {
