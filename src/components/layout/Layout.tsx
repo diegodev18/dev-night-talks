@@ -2,12 +2,12 @@ import type { ReactNode } from "react"
 
 import { cn } from "@/lib/utils"
 
-type LandingLayoutProps = {
+type LayoutProps = {
   children: ReactNode
   className?: string
 }
 
-export function LandingLayout({ children, className }: LandingLayoutProps) {
+export function Layout({ children, className }: LayoutProps) {
   return (
     <div className="dark relative isolate flex min-h-svh flex-col bg-background font-sans text-foreground">
       <div className="landing-rainbow-backdrop" aria-hidden />

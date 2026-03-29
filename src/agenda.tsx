@@ -2,10 +2,12 @@ import { StrictMode } from "react"
 import { createRoot } from "react-dom/client"
 
 import "@/styles/index.css"
+import { Layout } from "@/components/layout/Layout"
 
 export function AgendaApp() {
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center gap-4 bg-background px-6 text-foreground">
+    <Layout>
+    <div className="flex min-h-[83vh] flex-col items-center justify-center gap-4 text-foreground">
       <h1 className="font-heading text-2xl font-medium">Agenda</h1>
       <p className="text-sm text-muted-foreground">Próximamente.</p>
       <a
@@ -14,7 +16,8 @@ export function AgendaApp() {
       >
         Volver al inicio
       </a>
-    </main>
+    </div>
+    </Layout>
   )
 }
 

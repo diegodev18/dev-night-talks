@@ -7,11 +7,11 @@ import { PartnersSection } from "@/components/landing/PartnersSection"
 import { SiteFooter } from "@/components/landing/SiteFooter"
 import { SiteHeader } from "@/components/landing/SiteHeader"
 import { UpcomingEventSection } from "@/components/landing/UpcomingEventSection"
-import { LandingLayout } from "@/components/layout/LandingLayout"
+import { Layout } from "@/components/layout/Layout"
 
 export function Landing() {
   return (
-    <LandingLayout>
+    <Layout>
       <SiteHeader />
       <HeroSection />
       <AboutSection />
@@ -21,6 +21,6 @@ export function Landing() {
       <PartnersSection />
       <FinalCtaSection />
       <SiteFooter />
-    </LandingLayout>
+    </Layout>
   )
 }
