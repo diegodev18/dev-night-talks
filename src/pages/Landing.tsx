@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/landing/SiteHeader"
 import { UpcomingEventSection } from "@/components/landing/UpcomingEventSection"
 import { Layout } from "@/components/layout/Layout"
 
-export function Landing() {
+export default function Landing() {
   return (
     <Layout>
       <SiteHeader />
