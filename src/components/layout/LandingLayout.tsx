@@ -9,10 +9,10 @@ type LandingLayoutProps = {
 
 export function LandingLayout({ children, className }: LandingLayoutProps) {
   return (
-    <div className="flex min-h-svh flex-col bg-background text-foreground">
+    <div className="dark flex min-h-svh flex-col bg-background font-sans text-foreground">
       <div
         className={cn(
-          "mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-6 py-8 sm:gap-16 sm:py-12",
+          "mx-auto flex w-full max-w-7xl flex-1 flex-col gap-20 px-6 py-8 sm:py-16",
           className
         )}
       >
