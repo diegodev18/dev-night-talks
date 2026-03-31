@@ -1,5 +1,6 @@
 import { AwsDark } from "@/components/ui/svgs/awsDark";
 import { GithubWordmarkDark } from "@/components/ui/svgs/githubWordmarkDark";
+import { Kai } from "@/components/ui/svgs/kai";
 import { Lati } from "@/components/ui/svgs/lati";
 import TavoDev from "@/components/ui/svgs/tavoDev";
 
@@ -61,6 +62,15 @@ export function PartnersSection() {
             className="h-8 w-auto max-w-[100px] text-foreground"
             aria-hidden
           />
+        </a>
+        <a
+          href="https://kai.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={partnerClass}
+          aria-label="kAI"
+        >
+          <Kai className="h-9 w-auto" aria-hidden />
         </a>
       </div>
     </section>
