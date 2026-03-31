@@ -52,6 +52,10 @@ public/
 
 No hay variables obligatorias para desarrollo local. El mapa en “Qué es Dev Night Talks” usa embed de OpenStreetMap y un enlace a la ficha de Google Maps (las URLs `/place/` de Google no se pueden incrustar de forma fiable en iframes de terceros sin Maps Embed API + clave).
 
+## Contribuir
+
+¿Quieres colaborar? Consulta la [guía de contribución](docs/CONTRIBUTING.md) para conocer el flujo de trabajo, convención de commits y guía de pull requests.
+
 ## Licencia y créditos
 
 Revisa el repositorio en GitHub para licencia y colaboradores: [github.com/diegodev18/dev-night-talks](https://github.com/diegodev18/dev-night-talks).
