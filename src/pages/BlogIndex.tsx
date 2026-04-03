@@ -99,7 +99,7 @@ export default function BlogIndex() {
           </section>
 
           <section
-            className="flex flex-col items-center gap-4 text-center"
+            className="flex flex-col items-center gap-6 border-t border-border pt-16 text-center"
             aria-labelledby="blog-cta-heading"
           >
             <h2
@@ -108,20 +108,53 @@ export default function BlogIndex() {
             >
               ¿Quieres escribir en el blog?
             </h2>
-            <p className="max-w-md text-sm text-muted-foreground sm:text-base">
+            <p className="max-w-lg text-sm text-muted-foreground sm:text-base">
               Crea un archivo Markdown en{" "}
               <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">
                 content/blog/
               </code>{" "}
-              y tu publicacion aparecera aqui automaticamente.
+              con tu contenido y abre un Pull Request. Los pasos son:
             </p>
-            <TransitionLink
-              to="/"
-              transitionType="nav-back"
-              className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
-            >
-              Volver al inicio
-            </TransitionLink>
+            <ol className="max-w-md text-left text-sm text-muted-foreground sm:text-base">
+              <li className="flex gap-2">
+                <span className="shrink-0 font-mono text-primary">1.</span>
+                <span>Fork el repositorio y crea una rama <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">feature/blog-tu-post</code></span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 font-mono text-primary">2.</span>
+                <span>Crea tu archivo <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">content/blog/tu-post.md</code> con frontmatter y contenido</span>
+              </li>
+              <li className="flex gap-2">
+                <span className="shrink-0 font-mono text-primary">3.</span>
+                <span>Abre un PR siguiendo la{" "}
+                  <a
+                    href="https://github.com/diegodev18/dev-night-talks/blob/master/docs/CONTRIBUTING.md"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline underline-offset-4 transition-colors hover:text-primary/80"
+                  >
+                    guia de contribucion
+                  </a>
+                </span>
+              </li>
+            </ol>
+            <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <a
+                href="https://github.com/diegodev18/dev-night-talks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+              >
+                Ver repositorio
+              </a>
+              <TransitionLink
+                to="/"
+                transitionType="nav-back"
+                className="text-sm text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+              >
+                Volver al inicio
+              </TransitionLink>
+            </div>
           </section>
         </main>
         <SiteFooter />
