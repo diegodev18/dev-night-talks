@@ -7,6 +7,7 @@ import Join from "@/pages/Join"
 import Contribute from "@/pages/Contribute"
 import BlogIndex from "@/pages/BlogIndex"
 import BlogPost from "@/pages/BlogPost"
+import NotFound from "@/pages/NotFound"
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation()
@@ -40,6 +41,7 @@ function AppRoutes() {
         <Route path="/contribute" element={<Contribute />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   )
