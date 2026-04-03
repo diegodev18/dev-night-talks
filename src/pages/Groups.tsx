@@ -1,5 +1,7 @@
 import { useState, type ReactNode } from "react"
 import { Link } from "react-router-dom"
+import { LinkSquare01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 
 import { SiteFooter } from "@/components/landing/SiteFooter"
 import { SiteHeader } from "@/components/landing/SiteHeader"
@@ -31,7 +33,7 @@ const communities: Community[] = [
       "Comunidad en torno a la nube AWS: buenas prácticas, arquitectura y experiencias locales.",
     imageSrc: "/groups/aws.webp",
     initials: "AWS",
-    href: null,
+    href: "https://www.meetup.com/aws-ug-villahermosa/",
   },
   {
     name: "Cursor Villahermosa",
@@ -89,10 +91,16 @@ function CommunityCardLink({
 
 function CommunityCard({ name, description, imageSrc, initials, href }: Community) {
   const [imageFailed, setImageFailed] = useState(false)
+  const isLinkable = !!href
 
   const card = (
     <Card
-      className="gap-0 overflow-hidden p-0 py-0 data-[size=sm]:gap-0 data-[size=sm]:py-0"
+      className={[
+        "gap-0 overflow-hidden p-0 py-0 data-[size=sm]:gap-0 data-[size=sm]:py-0",
+        isLinkable
+          ? "group/outline transition-shadow duration-200 hover:shadow-[0_0_0_2px_var(--ring)] hover:shadow-[0_0_0_4px_var(--ring)/20]"
+          : "",
+      ].join(" ")}
       size="sm"
     >
       <div className="relative aspect-4/3 w-full bg-card">
@@ -100,7 +108,7 @@ function CommunityCard({ name, description, imageSrc, initials, href }: Communit
           <img
             src={imageSrc}
             alt={name}
-            className="absolute inset-0 block size-full object-cover object-center"
+            className="absolute inset-0 block size-full object-cover object-center transition-transform duration-200 group-hover/outline:scale-[1.02]"
             onError={() => setImageFailed(true)}
           />
         ) : null}
@@ -112,6 +120,11 @@ function CommunityCard({ name, description, imageSrc, initials, href }: Communit
             <span className="font-heading text-2xl font-semibold tracking-tight text-muted-foreground">
               {initials}
             </span>
+          </div>
+        ) : null}
+        {isLinkable ? (
+          <div className="pointer-events-none absolute bottom-2 left-2 flex size-8 items-center justify-center rounded-md bg-background/90 opacity-0 shadow-sm backdrop-blur-sm transition-opacity duration-200 group-hover/outline:opacity-100 sm:bottom-3 sm:left-3 sm:size-9">
+            <HugeiconsIcon icon={LinkSquare01Icon} className="size-4 text-foreground sm:size-[1.125rem]" />
           </div>
         ) : null}
       </div>
