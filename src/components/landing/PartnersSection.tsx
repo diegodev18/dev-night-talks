@@ -64,7 +64,7 @@ export function PartnersSection() {
           />
         </a>
         <a
-          href="https://kai.com/"
+          href="https://talktokai.com/"
           target="_blank"
           rel="noopener noreferrer"
           className={partnerClass}
