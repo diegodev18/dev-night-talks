@@ -3,3 +3,4 @@ node_modules/
 skills-lock.json
 pnpm-lock.yaml
 dist/
+src/components/ui/
