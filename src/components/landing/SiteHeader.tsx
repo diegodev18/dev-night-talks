@@ -1,6 +1,5 @@
 import { ArrowRight01Icon, Menu01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 import { TransitionLink } from "@/components/layout/TransitionLink"
@@ -76,11 +75,6 @@ function MobileNavButton({ item }: { item: NavItem }) {
 export function SiteHeader() {
   const location = useLocation()
   const isLanding = location.pathname === "/"
-  const [animKey, setAnimKey] = useState(0)
-
-  useEffect(() => {
-    setAnimKey((k) => k + 1)
-  }, [location.pathname])
 
   const landingItems = landingNav.flatMap((item, i) => {
     const delay = i * 40
@@ -196,13 +190,13 @@ export function SiteHeader() {
         aria-label="Principal"
       >
         {isLanding ? (
-          <div key={`landing-${animKey}`} className="flex items-center gap-1">
+          <div key={`landing-${location.pathname}`} className="flex items-center gap-1">
             {landingItems}
             {separator}
             {pageItems}
           </div>
         ) : (
-          <div key={`groups-${animKey}`} className="flex items-center gap-1">
+          <div key={`groups-${location.pathname}`} className="flex items-center gap-1">
             {groupsItems}
           </div>
         )}
