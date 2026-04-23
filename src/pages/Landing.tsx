@@ -1,5 +1,6 @@
 import { AboutSection } from "@/components/landing/AboutSection"
 import { AgendaPreviewSection } from "@/components/landing/AgendaPreviewSection"
+import { EventsSection } from "@/components/landing/EventsSection"
 import { FaqSection } from "@/components/landing/FaqSection"
 import { FinalCtaSection } from "@/components/landing/FinalCtaSection"
 import { HeroSection } from "@/components/landing/HeroSection"
@@ -18,6 +19,7 @@ export default function Landing() {
         <HeroSection />
         <AboutSection />
         <UpcomingEventSection />
+        <EventsSection />
         <AgendaPreviewSection />
         <FaqSection />
         <PartnersSection />
