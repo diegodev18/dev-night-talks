@@ -8,15 +8,15 @@ Este documento lista las páginas que se planean agregar al proyecto **Dev Night
 
 ## Estado general
 
-| Prioridad | Página | Ruta | Estado |
-|-----------|--------|------|--------|
-| Alta | Eventos | `/events` | Pendiente |
-| Alta | Speakers | `/speakers` | Pendiente |
-| Alta | Galería | `/gallery` | Pendiente |
-| Media | Código de Conducta | `/conduct` | Pendiente |
-| Baja | Contacto | `/contact` | Pendiente |
-| Baja | Sponsors | `/sponsors` | Pendiente |
-| Baja | Recursos | `/resources` | Pendiente |
+| Prioridad | Página             | Ruta         | Estado    |
+| --------- | ------------------ | ------------ | --------- |
+| Alta      | Eventos            | `/events`    | Pendiente |
+| Alta      | Speakers           | `/speakers`  | Pendiente |
+| Alta      | Galería            | `/gallery`   | Pendiente |
+| Media     | Código de Conducta | `/conduct`   | Pendiente |
+| Baja      | Contacto           | `/contact`   | Pendiente |
+| Baja      | Sponsors           | `/sponsors`  | Pendiente |
+| Baja      | Recursos           | `/resources` | Pendiente |
 
 ---
 
@@ -35,15 +35,15 @@ Listado de eventos pasados y próximos de Dev Night Talks con filtros por fecha 
 
 ```ts
 type Event = {
-  id: string
-  title: string
-  description: string
-  date: string
-  status: "upcoming" | "past"
-  topics: string[]
-  location: string
-  meetupUrl?: string
-}
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  status: 'upcoming' | 'past';
+  topics: string[];
+  location: string;
+  meetupUrl?: string;
+};
 ```
 
 ### To-dos
@@ -76,15 +76,15 @@ Perfiles de personas que han dado charlas en Dev Night Talks.
 
 ```ts
 type Speaker = {
-  id: string
-  name: string
-  bio: string
-  photoSrc: string
-  initials: string
-  topics: string[]
-  socials?: { platform: string; url: string }[]
-  pastTalks?: { title: string; eventId: string; date: string }[]
-}
+  id: string;
+  name: string;
+  bio: string;
+  photoSrc: string;
+  initials: string;
+  topics: string[];
+  socials?: { platform: string; url: string }[];
+  pastTalks?: { title: string; eventId: string; date: string }[];
+};
 ```
 
 ### To-dos
@@ -116,12 +116,12 @@ Fotos de eventos pasados organizadas por evento o en un grid general.
 
 ```ts
 type GalleryPhoto = {
-  id: string
-  src: string
-  alt: string
-  eventId?: string
-  eventName?: string
-}
+  id: string;
+  src: string;
+  alt: string;
+  eventId?: string;
+  eventName?: string;
+};
 ```
 
 ### To-dos
@@ -199,18 +199,18 @@ Página dedicada a patrocinadores actuales y pasados, con planes de patrocinio.
 
 ```ts
 type Sponsor = {
-  name: string
-  logoSrc: string
-  url: string
-  tier: "gold" | "silver" | "bronze"
-}
+  name: string;
+  logoSrc: string;
+  url: string;
+  tier: 'gold' | 'silver' | 'bronze';
+};
 
 type SponsorPlan = {
-  tier: string
-  price: string
-  benefits: string[]
-  cta: string
-}
+  tier: string;
+  price: string;
+  benefits: string[];
+  cta: string;
+};
 ```
 
 ### To-dos
@@ -243,12 +243,12 @@ Links útiles, grabaciones de charlas, slides y material de aprendizaje.
 
 ```ts
 type Resource = {
-  title: string
-  url: string
-  description: string
-  category: string
-  type: "video" | "slides" | "article" | "tool"
-}
+  title: string;
+  url: string;
+  description: string;
+  category: string;
+  type: 'video' | 'slides' | 'article' | 'tool';
+};
 ```
 
 ### To-dos

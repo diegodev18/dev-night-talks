@@ -1,13 +1,13 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 const InstagramWordmark = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} xmlSpace="preserve" viewBox="0 0 792 224.7">
     <defs>
       <linearGradient id="a" x1="0%" x2="100%" y1="0%" y2="0%">
-        <stop offset="0%" style={{ stopColor: "#780cff" }} />
-        <stop offset="35%" style={{ stopColor: "#fc01d8" }} />
-        <stop offset="70%" style={{ stopColor: "#ff005f" }} />
-        <stop offset="100%" style={{ stopColor: "#fc0" }} />
+        <stop offset="0%" style={{ stopColor: '#780cff' }} />
+        <stop offset="35%" style={{ stopColor: '#fc01d8' }} />
+        <stop offset="70%" style={{ stopColor: '#ff005f' }} />
+        <stop offset="100%" style={{ stopColor: '#fc0' }} />
       </linearGradient>
     </defs>
     <path

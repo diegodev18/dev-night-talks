@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 /** Marca Instagram (glifo oficial simplificado, `currentColor`). */
 const Instagram = (props: SVGProps<SVGSVGElement>) => (

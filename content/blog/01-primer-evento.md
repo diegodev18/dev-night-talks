@@ -1,10 +1,10 @@
 ---
-title: "Dev Night Talks: Nuestro Primer Evento"
-excerpt: "Asi fue nuestro primer evento de la comunidad. Una noche llena de charlas, networking y mucho codigo."
-date: "2026-03-15"
-author: "Diego"
-tags: ["evento", "comunidad"]
-coverImage: "/blog/cover-1.jpg"
+title: 'Dev Night Talks: Nuestro Primer Evento'
+excerpt: 'Asi fue nuestro primer evento de la comunidad. Una noche llena de charlas, networking y mucho codigo.'
+date: '2026-03-15'
+author: 'Diego'
+tags: ['evento', 'comunidad']
+coverImage: '/blog/cover-1.jpg'
 ---
 
 ## Una noche increible

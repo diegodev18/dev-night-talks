@@ -17,12 +17,12 @@ Sitio de la comunidad **Dev Night Talks** (Villahermosa): landing con informaci�
 
 ## Scripts
 
-| Comando     | Descripción                          |
-| ----------- | ------------------------------------ |
-| `pnpm dev`  | Servidor de desarrollo con HMR       |
-| `pnpm build`| `tsc -b` y compilación de producción |
-| `pnpm preview` | Vista previa del build estático   |
-| `pnpm lint` | ESLint                               |
+| Comando        | Descripción                          |
+| -------------- | ------------------------------------ |
+| `pnpm dev`     | Servidor de desarrollo con HMR       |
+| `pnpm build`   | `tsc -b` y compilación de producción |
+| `pnpm preview` | Vista previa del build estático      |
+| `pnpm lint`    | ESLint                               |
 
 ## Rutas
 

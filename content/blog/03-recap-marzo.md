@@ -1,22 +1,22 @@
 ---
-title: "Recap: Marzo 2026 en la comunidad"
-excerpt: "Resumen de todo lo que paso en Dev Night Talks durante marzo. Nuevos miembros, proyectos y lo que viene para abril."
-date: "2026-03-31"
-author: "Diego"
-tags: ["comunidad", "recap"]
-coverImage: "/blog/cover-3.jpg"
+title: 'Recap: Marzo 2026 en la comunidad'
+excerpt: 'Resumen de todo lo que paso en Dev Night Talks durante marzo. Nuevos miembros, proyectos y lo que viene para abril.'
+date: '2026-03-31'
+author: 'Diego'
+tags: ['comunidad', 'recap']
+coverImage: '/blog/cover-3.jpg'
 ---
 
 ## Marzo fue un gran mes
 
 Cerramos marzo con numeros increibles para la comunidad:
 
-| Metrica | Valor |
-|---------|-------|
-| Miembros nuevos | 23 |
-| Eventos realizados | 1 |
-| PRs mergeados | 15 |
-| Stars en GitHub | 50+ |
+| Metrica            | Valor |
+| ------------------ | ----- |
+| Miembros nuevos    | 23    |
+| Eventos realizados | 1     |
+| PRs mergeados      | 15    |
+| Stars en GitHub    | 50+   |
 
 ## Lo mas destacado
 

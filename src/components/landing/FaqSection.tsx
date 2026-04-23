@@ -1,57 +1,40 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const faqs = [
   {
-    q: "¿Tiene costo asistir?",
-    a: "El evento es gratuito para la comunidad. Cualquier cambio se anunciará en redes y en la agenda.",
+    q: '¿Tiene costo asistir?',
+    a: 'El evento es gratuito para la comunidad. Cualquier cambio se anunciará en redes y en la agenda.',
   },
   {
-    q: "¿Necesito registrarme?",
-    a: "Por ahora puedes llegar directo al lugar. Si más adelante usamos registro o cupos, lo publicaremos con anticipación.",
+    q: '¿Necesito registrarme?',
+    a: 'Por ahora puedes llegar directo al lugar. Si más adelante usamos registro o cupos, lo publicaremos con anticipación.',
   },
   {
-    q: "¿Qué nivel técnico se espera?",
-    a: "Hay espacio para distintos perfiles. Las charlas suelen ser accesibles con ganas de aprender; algunas pueden ir un poco más profundo.",
+    q: '¿Qué nivel técnico se espera?',
+    a: 'Hay espacio para distintos perfiles. Las charlas suelen ser accesibles con ganas de aprender; algunas pueden ir un poco más profundo.',
   },
   {
-    q: "¿Puedo proponer una charla?",
-    a: "Sí. Escríbenos por redes o habla con el equipo en el evento. Nos encanta dar visibilidad a la comunidad local.",
+    q: '¿Puedo proponer una charla?',
+    a: 'Sí. Escríbenos por redes o habla con el equipo en el evento. Nos encanta dar visibilidad a la comunidad local.',
   },
   {
-    q: "¿Hay código de conducta?",
-    a: "Buscamos un ambiente respetuoso e inclusivo. Comportamientos hostiles no son bienvenidos; el equipo puede pedir a alguien que se retire si es necesario.",
+    q: '¿Hay código de conducta?',
+    a: 'Buscamos un ambiente respetuoso e inclusivo. Comportamientos hostiles no son bienvenidos; el equipo puede pedir a alguien que se retire si es necesario.',
   },
-] as const
+] as const;
 
 export function FaqSection() {
   return (
-    <section
-      id="faq"
-      className="scroll-mt-24 flex flex-col items-center gap-6"
-      aria-labelledby="faq-heading"
-    >
+    <section id="faq" className="scroll-mt-24 flex flex-col items-center gap-6" aria-labelledby="faq-heading">
       <div className="mx-auto flex max-w-2xl flex-col items-center gap-2 text-center">
-        <h2
-          id="faq-heading"
-          className="font-heading text-lg font-medium text-foreground sm:text-xl"
-        >
+        <h2 id="faq-heading" className="font-heading text-lg font-medium text-foreground sm:text-xl">
           Preguntas frecuentes
         </h2>
         <p className="text-pretty text-sm text-muted-foreground">
-          Respuestas rápidas; si te falta algo, pregunta en el próximo meetup o
-          por mensaje en Instagram o TikTok.
+          Respuestas rápidas; si te falta algo, pregunta en el próximo meetup o por mensaje en Instagram o TikTok.
         </p>
       </div>
-      <Accordion
-        type="single"
-        collapsible
-        className="mx-auto w-full max-w-2xl"
-      >
+      <Accordion type="single" collapsible className="mx-auto w-full max-w-2xl">
         {faqs.map((item, i) => (
           <AccordionItem key={item.q} value={`faq-${i}`}>
             <AccordionTrigger>{item.q}</AccordionTrigger>
@@ -62,5 +45,5 @@ export function FaqSection() {
         ))}
       </Accordion>
     </section>
-  )
+  );
 }

@@ -43,12 +43,12 @@ pnpm lint
 
 ### Comandos Disponibles
 
-| Comando | Descripción |
-|---------|-------------|
-| `pnpm dev` | Inicia el servidor de desarrollo con HMR |
-| `pnpm build` | Type check + build de producción |
-| `pnpm lint` | Ejecuta ESLint |
-| `pnpm preview` | Previsualiza el build de producción |
+| Comando        | Descripción                              |
+| -------------- | ---------------------------------------- |
+| `pnpm dev`     | Inicia el servidor de desarrollo con HMR |
+| `pnpm build`   | Type check + build de producción         |
+| `pnpm lint`    | Ejecuta ESLint                           |
+| `pnpm preview` | Previsualiza el build de producción      |
 
 > **Importante:** Antes de hacer push, siempre ejecuta `pnpm build` y `pnpm lint` para verificar que tu código no tenga errores.
 
@@ -88,16 +88,16 @@ git checkout -b refactor/descripcion-del-cambio
 
 Usa el formato `tipo/descripcion-corta`:
 
-| Prefijo | Uso | Ejemplo |
-|---------|-----|---------|
-| `feature/` | Nueva funcionalidad | `feature/agenda-section` |
-| `fix/` | Corrección de bug | `fix/hero-mobile-layout` |
-| `refactor/` | Refactorización | `refactor/extract-card-component` |
-| `docs/` | Documentación | `docs/contributing-guide` |
-| `style/` | Cambios de estilo/estética | `style/update-color-palette` |
-| `chore/` | Tareas de mantenimiento | `chore/update-dependencies` |
-| `perf/` | Mejora de rendimiento | `perf/optimize-image-loading` |
-| `ci/` | Configuración de CI/CD | `ci/add-lint-check` |
+| Prefijo     | Uso                        | Ejemplo                           |
+| ----------- | -------------------------- | --------------------------------- |
+| `feature/`  | Nueva funcionalidad        | `feature/agenda-section`          |
+| `fix/`      | Corrección de bug          | `fix/hero-mobile-layout`          |
+| `refactor/` | Refactorización            | `refactor/extract-card-component` |
+| `docs/`     | Documentación              | `docs/contributing-guide`         |
+| `style/`    | Cambios de estilo/estética | `style/update-color-palette`      |
+| `chore/`    | Tareas de mantenimiento    | `chore/update-dependencies`       |
+| `perf/`     | Mejora de rendimiento      | `perf/optimize-image-loading`     |
+| `ci/`       | Configuración de CI/CD     | `ci/add-lint-check`               |
 
 ### 3. Mantén tu Rama Actualizada
 
@@ -123,17 +123,17 @@ Descripción opcional más detallada (si es necesario).
 
 ### Tipos de Commit
 
-| Tipo | Descripción | Ejemplo |
-|------|-------------|---------|
-| `feat` | Nueva funcionalidad | `feat: add FAQ section to landing page` |
-| `fix` | Corrección de bug | `fix: resolve mobile navigation overflow` |
+| Tipo       | Descripción                             | Ejemplo                                                  |
+| ---------- | --------------------------------------- | -------------------------------------------------------- |
+| `feat`     | Nueva funcionalidad                     | `feat: add FAQ section to landing page`                  |
+| `fix`      | Corrección de bug                       | `fix: resolve mobile navigation overflow`                |
 | `refactor` | Refactorización sin cambios funcionales | `refactor: extract community card to reusable component` |
-| `docs` | Cambios en documentación | `docs: update README with setup instructions` |
-| `style` | Cambios de formato/estilo (sin lógica) | `style: fix indentation in Header component` |
-| `chore` | Tareas de mantenimiento | `chore: update dependencies to latest versions` |
-| `perf` | Mejora de rendimiento | `perf: lazy load partner images` |
-| `test` | Tests | `test: add unit tests for cn utility` |
-| `ci` | CI/CD | `ci: add build check to PR workflow` |
+| `docs`     | Cambios en documentación                | `docs: update README with setup instructions`            |
+| `style`    | Cambios de formato/estilo (sin lógica)  | `style: fix indentation in Header component`             |
+| `chore`    | Tareas de mantenimiento                 | `chore: update dependencies to latest versions`          |
+| `perf`     | Mejora de rendimiento                   | `perf: lazy load partner images`                         |
+| `test`     | Tests                                   | `test: add unit tests for cn utility`                    |
+| `ci`       | CI/CD                                   | `ci: add build check to PR workflow`                     |
 
 ### Alcance (Opcional)
 
@@ -251,12 +251,12 @@ Cualquier información relevante para los revisores.
 
 ```typescript
 // Orden: React/hooks → third-party → interno (@/) → CSS
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import "@/styles/index.css"
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import '@/styles/index.css';
 ```
 
 - Usa `@/*` para imports relativos a `src/`

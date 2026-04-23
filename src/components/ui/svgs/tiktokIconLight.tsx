@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 const TiktokIconLight = (props: SVGProps<SVGSVGElement>) => (
   <svg {...props} id="Layer_2" viewBox="0 0 352.28 398.67">

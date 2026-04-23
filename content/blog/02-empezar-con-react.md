@@ -1,10 +1,10 @@
 ---
-title: "Como empezar con React en 2026"
-excerpt: "Guia practica para comenzar a desarrollar con React usando las mejores practicas actuales y herramientas modernas."
-date: "2026-03-20"
-author: "Diego"
-tags: ["tutorial", "react"]
-coverImage: "/blog/cover-2.jpg"
+title: 'Como empezar con React en 2026'
+excerpt: 'Guia practica para comenzar a desarrollar con React usando las mejores practicas actuales y herramientas modernas.'
+date: '2026-03-20'
+author: 'Diego'
+tags: ['tutorial', 'react']
+coverImage: '/blog/cover-2.jpg'
 ---
 
 ## Por que React en 2026
@@ -40,7 +40,7 @@ Esto te da un proyecto con:
 
 ```tsx
 function Welcome({ name }: { name: string }) {
-  return <h1>Hola, {name}!</h1>
+  return <h1>Hola, {name}!</h1>;
 }
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
     <main>
       <Welcome name="Mundo" />
     </main>
-  )
+  );
 }
 ```
 

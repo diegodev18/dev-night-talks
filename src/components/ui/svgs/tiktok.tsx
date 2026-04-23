@@ -1,4 +1,4 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 /** Marca TikTok (glifo simplificado, `currentColor`). */
 const Tiktok = (props: SVGProps<SVGSVGElement>) => (

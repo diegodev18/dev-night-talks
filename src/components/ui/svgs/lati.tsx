@@ -1,16 +1,9 @@
-import type { SVGProps } from "react";
+import type { SVGProps } from 'react';
 
 /** Logo Lati (versión “blank”: sin fondo, `currentColor` para glifos). */
 const Lati = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    viewBox="0 0 280 110"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <g
-      fill="currentColor"
-      style={{ filter: "drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4))" }}
-    >
+  <svg {...props} viewBox="0 0 280 110" xmlns="http://www.w3.org/2000/svg">
+    <g fill="currentColor" style={{ filter: 'drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.4))' }}>
       <path d="M 52 35 Q 17 55 52 75 Q 37 55 52 35 Z" />
       <path d="M 71 35 Q 36 55 71 75 Q 56 55 71 35 Z" />
       <path d="M 82 30 L 94 30 L 94 68 L 110 68 L 110 80 L 82 80 Z" />

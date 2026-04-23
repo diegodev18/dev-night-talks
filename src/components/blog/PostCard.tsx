@@ -1,27 +1,21 @@
-import { CalendarsIcon } from "@hugeicons/core-free-icons"
-import { HugeiconsIcon } from "@hugeicons/react"
+import { CalendarsIcon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
-import { Badge } from "@/components/ui/badge"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { TransitionLink } from "@/components/layout/TransitionLink"
-import type { BlogPost } from "@/types/blog"
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { TransitionLink } from '@/components/layout/TransitionLink';
+import type { BlogPost } from '@/types/blog';
 
 type PostCardProps = {
-  post: BlogPost
-}
+  post: BlogPost;
+};
 
 function formatDate(date: string): string {
-  return new Date(date + "T00:00:00").toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
+  return new Date(date + 'T00:00:00').toLocaleDateString('es-MX', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 }
 
 export function PostCard({ post }: PostCardProps) {
@@ -35,8 +29,8 @@ export function PostCard({ post }: PostCardProps) {
               alt=""
               className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
-                const target = e.currentTarget
-                target.style.display = "none"
+                const target = e.currentTarget;
+                target.style.display = 'none';
               }}
             />
           </div>
@@ -49,9 +43,7 @@ export function PostCard({ post }: PostCardProps) {
           <CardTitle className="font-heading text-base tracking-tight text-foreground group-hover:text-primary sm:text-lg">
             {post.title}
           </CardTitle>
-          <CardDescription className="text-xs/relaxed sm:text-sm">
-            {post.excerpt}
-          </CardDescription>
+          <CardDescription className="text-xs/relaxed sm:text-sm">{post.excerpt}</CardDescription>
         </CardHeader>
         <CardContent className="px-4 pb-2">
           <div className="flex flex-wrap gap-1.5">
@@ -64,5 +56,5 @@ export function PostCard({ post }: PostCardProps) {
         </CardContent>
       </Card>
     </TransitionLink>
-  )
+  );
 }
