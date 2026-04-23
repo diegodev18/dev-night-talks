@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { PinLocation01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Badge } from "@/components/ui/badge"
@@ -66,6 +67,11 @@ export function EventsSection() {
             </CardContent>
           </Card>
         ))}
+      </div>
+      <div className="flex justify-center">
+        <Button variant="outline" size="sm" asChild>
+          <Link to="/events">Ver todos los eventos</Link>
+        </Button>
       </div>
     </section>
   )

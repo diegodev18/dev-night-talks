@@ -32,6 +32,7 @@ const landingNav: NavItem[] = [
 
 const pageNav: NavItem[] = [
   { label: "Comunidades", to: "/groups", type: "page" },
+  { label: "Eventos", to: "/events", type: "page" },
   { label: "Blog", to: "/blog", type: "page" },
   { label: "Contribuir", to: "/contribute", type: "page" },
 ]
