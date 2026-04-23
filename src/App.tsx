@@ -1,34 +1,32 @@
-import { useEffect } from "react"
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
+import { useEffect } from 'react';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
-import Landing from "@/pages/Landing"
-import Groups from "@/pages/Groups"
-import Join from "@/pages/Join"
-import Contribute from "@/pages/Contribute"
-import BlogIndex from "@/pages/BlogIndex"
-import BlogPost from "@/pages/BlogPost"
-import Events from "@/pages/Events"
-import NotFound from "@/pages/NotFound"
+import Landing from '@/pages/Landing';
+import Groups from '@/pages/Groups';
+import Join from '@/pages/Join';
+import Contribute from '@/pages/Contribute';
+import BlogIndex from '@/pages/BlogIndex';
+import BlogPost from '@/pages/BlogPost';
+import Events from '@/pages/Events';
+import NotFound from '@/pages/NotFound';
 
 function ScrollToHash() {
-  const { pathname, hash } = useLocation()
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    if (!hash) return
-    const id = decodeURIComponent(hash.slice(1))
-    if (!id) return
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    if (!id) return;
     const run = () => {
-      const el = document.getElementById(id)
-      if (!el) return
-      const reduce =
-        typeof window !== "undefined" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches
-      el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" })
-    }
-    requestAnimationFrame(run)
-  }, [pathname, hash])
+      const el = document.getElementById(id);
+      if (!el) return;
+      const reduce = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    };
+    requestAnimationFrame(run);
+  }, [pathname, hash]);
 
-  return null
+  return null;
 }
 
 function AppRoutes() {
@@ -46,7 +44,7 @@ function AppRoutes() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
-  )
+  );
 }
 
 function App() {
@@ -54,7 +52,7 @@ function App() {
     <BrowserRouter>
       <AppRoutes />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
