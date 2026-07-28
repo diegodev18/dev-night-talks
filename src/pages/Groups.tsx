@@ -89,6 +89,10 @@ function CommunityCard({ name, description, imageSrc, initials, href }: Communit
           <img
             src={imageSrc}
             alt={name}
+            loading="lazy"
+            decoding="async"
+            width={400}
+            height={300}
             className="absolute inset-0 block size-full object-cover object-center transition-transform duration-200 group-hover/outline:scale-[1.02]"
             onError={() => setImageFailed(true)}
           />

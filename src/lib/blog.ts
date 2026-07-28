@@ -57,9 +57,19 @@ async function loadPost(filepath: string): Promise<BlogPost> {
   };
 }
 
-export async function getAllPosts(): Promise<BlogPost[]> {
-  const posts = await Promise.all(Object.keys(postFiles).map(loadPost));
-  return posts.sort((a, b) => b.date.localeCompare(a.date));
+// Los posts son estaticos: se parsean una vez y se reutiliza la misma promesa.
+// Sin esto, una vista como BlogPost (que pide el post y la lista completa)
+// descarga y parsea todos los markdown dos veces.
+let postsCache: Promise<BlogPost[]> | null = null;
+
+export function getAllPosts(): Promise<BlogPost[]> {
+  postsCache ??= Promise.all(Object.keys(postFiles).map(loadPost))
+    .then((posts) => posts.sort((a, b) => b.date.localeCompare(a.date)))
+    .catch((error) => {
+      postsCache = null; // permite reintentar tras un fallo de red
+      throw error;
+    });
+  return postsCache;
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {

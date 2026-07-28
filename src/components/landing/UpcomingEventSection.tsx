@@ -9,7 +9,13 @@ export function UpcomingEventSection() {
     <section id="evento" className="scroll-mt-24 grid gap-10 lg:grid-cols-2 lg:items-center" aria-labelledby="event-heading">
       <div className="flex justify-center lg:justify-start">
         <Avatar className="size-52 ring-2 ring-primary/35 ring-offset-4 ring-offset-background sm:size-60">
-          <AvatarImage src="/image.png" alt="Asistentes y organizadores en un meetup de Dev Night Talks" />
+          <AvatarImage
+            src="/image.webp"
+            alt="Asistentes y organizadores en un meetup de Dev Night Talks"
+            width={640}
+            height={554}
+            fetchPriority="high"
+          />
           <AvatarFallback className="bg-muted text-lg font-medium text-muted-foreground">Comunidad</AvatarFallback>
         </Avatar>
       </div>

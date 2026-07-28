@@ -1,14 +1,18 @@
-import { useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 
 import Landing from '@/pages/Landing';
-import Groups from '@/pages/Groups';
-import Join from '@/pages/Join';
-import Contribute from '@/pages/Contribute';
-import BlogIndex from '@/pages/BlogIndex';
-import BlogPost from '@/pages/BlogPost';
-import Events from '@/pages/Events';
-import NotFound from '@/pages/NotFound';
+
+// Landing se importa de forma estatica (es la ruta de entrada); el resto va en
+// chunks separados para no cargar react-markdown ni las paginas secundarias
+// en la primera visita.
+const Groups = lazy(() => import('@/pages/Groups'));
+const Join = lazy(() => import('@/pages/Join'));
+const Contribute = lazy(() => import('@/pages/Contribute'));
+const BlogIndex = lazy(() => import('@/pages/BlogIndex'));
+const BlogPost = lazy(() => import('@/pages/BlogPost'));
+const Events = lazy(() => import('@/pages/Events'));
+const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function ScrollToHash() {
   const { pathname, hash } = useLocation();
@@ -33,16 +37,24 @@ function AppRoutes() {
   return (
     <>
       <ScrollToHash />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/groups" element={<Groups />} />
-        <Route path="/join" element={<Join />} />
-        <Route path="/contribute" element={<Contribute />} />
-        <Route path="/blog" element={<BlogIndex />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      {/*
+        El fallback va vacio a proposito: las navegaciones internas pasan por
+        startTransition (ver TransitionLink), asi que React mantiene la pantalla
+        anterior mientras llega el chunk en vez de mostrar el fallback. Este solo
+        aparece en una carga directa por URL de una ruta secundaria.
+      */}
+      <Suspense fallback={null}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/groups" element={<Groups />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/contribute" element={<Contribute />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
