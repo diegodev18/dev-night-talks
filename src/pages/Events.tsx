@@ -9,13 +9,14 @@ import { SiteFooter } from '@/components/landing/SiteFooter';
 import { SiteHeader } from '@/components/landing/SiteHeader';
 import { DirectionalTransition } from '@/components/layout/DirectionalTransition';
 import { Layout } from '@/components/layout/Layout';
+import { isUpcoming } from '@/lib/events';
 
 type Event = {
   id: string;
   title: string;
   description: string;
+  startsAt: string;
   date: string;
-  status: 'upcoming' | 'past';
   topics: string[];
   location: string;
   meetupUrl?: string;
@@ -27,8 +28,8 @@ const events: Event[] = [
     title: 'Cursor Meetup',
     description:
       'Primer Cursor Meetup en Villahermosa. Comparte casos de uso, flujos de trabajo y aprende con otros desarrolladores que usan IA. Habrá comida, networking y buenas conversaciones.',
+    startsAt: '2026-05-30T13:00:00-06:00',
     date: 'Sábado 30 de Mayo 2026 - 1:00 PM',
-    status: 'upcoming',
     topics: ['IA', 'Cursor', 'Productividad'],
     location: 'Museo Regional La Cacaotera',
     meetupUrl: 'https://luma.com/g3uj926l',
@@ -37,8 +38,8 @@ const events: Event[] = [
     id: '2',
     title: 'Dev Night Talks: Cloud & DevOps',
     description: 'Sesión sobre contenedores, Kubernetes y mejores prácticas para desplegar aplicaciones en la nube.',
+    startsAt: '2025-03-22T18:00:00-06:00',
     date: 'Sábado 22 de Marzo 2025 - 6:00 PM',
-    status: 'past',
     topics: ['Cloud', 'Docker', 'DevOps'],
     location: 'Museo Regional La Cacaotera',
   },
@@ -46,8 +47,8 @@ const events: Event[] = [
     id: '3',
     title: 'Dev Night Talks: React & TypeScript',
     description: 'Charla sobre patrones avanzados en React, TypeScript para proyectos reales y componentes reutilizables.',
+    startsAt: '2025-02-15T18:00:00-06:00',
     date: 'Sábado 15 de Febrero 2025 - 6:00 PM',
-    status: 'past',
     topics: ['React', 'TypeScript', 'Frontend'],
     location: 'Coworking Villahermosa',
   },
@@ -55,8 +56,8 @@ const events: Event[] = [
     id: '4',
     title: 'Dev Night Talks: AI Agents',
     description: 'Exploración de agentes de IA autonomous, tool use y cómo integrarlos en aplicaciones.',
+    startsAt: '2025-01-18T18:00:00-06:00',
     date: 'Sábado 18 de Enero 2025 - 6:00 PM',
-    status: 'past',
     topics: ['IA', 'Agentes', 'Automación'],
     location: 'Museo Regional La Cacaotera',
   },
@@ -64,8 +65,8 @@ const events: Event[] = [
     id: '5',
     title: 'Dev Night Talks: Open Source',
     description: 'Cómo contribuir a proyectos open source, git flow, pull requests y comunidad.',
+    startsAt: '2024-12-14T18:00:00-06:00',
     date: 'Sábado 14 de Diciembre 2024 - 6:00 PM',
-    status: 'past',
     topics: ['Git', 'Open Source', 'Colaboración'],
     location: 'Coworking Villahermosa',
   },
@@ -73,8 +74,8 @@ const events: Event[] = [
     id: '6',
     title: 'Dev Night Talks: Primer Meetup',
     description: 'El primer encuentro de Dev Night Talks: presentación del grupo, temas a cubrir y networking.',
+    startsAt: '2024-11-16T18:00:00-06:00',
     date: 'Sábado 16 de Noviembre 2024 - 6:00 PM',
-    status: 'past',
     topics: ['Comunidad', 'Kickoff', 'Networking'],
     location: 'Café La Central',
   },
@@ -83,11 +84,13 @@ const events: Event[] = [
 type Filter = 'all' | 'upcoming' | 'past';
 
 function EventCard({ event }: { event: Event }) {
+  const upcoming = isUpcoming(event.startsAt);
+
   return (
     <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-[0_0_0_2px_var(--ring)] hover:shadow-[0_0_0_4px_var(--ring)/20]">
       <CardHeader className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center gap-2">
-          {event.status === 'upcoming' ? <Badge variant="default">Próximo</Badge> : <Badge variant="secondary">Pasado</Badge>}
+          {upcoming ? <Badge variant="default">Próximo</Badge> : <Badge variant="secondary">Pasado</Badge>}
           {event.topics.map((topic) => (
             <Badge key={topic} variant="outline" className="text-xs">
               {topic}
@@ -108,7 +111,7 @@ function EventCard({ event }: { event: Event }) {
             <span>{event.location}</span>
           </p>
         </div>
-        {event.status === 'upcoming' && event.meetupUrl && (
+        {upcoming && event.meetupUrl && (
           <Button asChild>
             <a href={event.meetupUrl} target="_blank" rel="noopener noreferrer">
               Registrarse
@@ -125,7 +128,7 @@ export default function Events() {
 
   const filteredEvents = useMemo(() => {
     if (filter === 'all') return events;
-    return events.filter((e) => e.status === filter);
+    return events.filter((e) => (filter === 'upcoming' ? isUpcoming(e.startsAt) : !isUpcoming(e.startsAt)));
   }, [filter]);
 
   return (

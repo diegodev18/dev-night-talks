@@ -1,13 +1,16 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { PinLocation01Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { isUpcoming } from '@/lib/events';
 
 const events = [
   {
     title: 'Cursor Meetup',
+    startsAt: '2026-05-30T13:00:00-06:00',
     date: 'Sábado 30 de Mayo a la 1:00 PM',
     location: 'Museo Regional La Cacaotera',
     url: 'https://luma.com/embed/event/evt-xFfw4kgLf538UUF/simple',
@@ -16,6 +19,10 @@ const events = [
 ] as const;
 
 export function EventsSection() {
+  const upcomingEvents = useMemo(() => events.filter((event) => isUpcoming(event.startsAt)), []);
+
+  if (upcomingEvents.length === 0) return null;
+
   return (
     <section id="eventos" className="scroll-mt-24 flex flex-col gap-6" aria-labelledby="eventos-heading">
       <div className="flex flex-col gap-2">
@@ -27,7 +34,7 @@ export function EventsSection() {
         </h2>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {events.map((event) => (
+        {upcomingEvents.map((event) => (
           <Card key={event.title} className="overflow-hidden">
             <CardContent className="flex flex-col gap-4 p-4">
               <div className="flex flex-col gap-2">
