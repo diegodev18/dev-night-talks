@@ -19,10 +19,21 @@ type Event = {
   date: string;
   topics: string[];
   location: string;
+  imageUrl?: string;
   meetupUrl?: string;
 };
 
 const events: Event[] = [
+  {
+    id: 'grok-bot-2026',
+    title: 'Grok Bot Villahermosa Meetup',
+    description: 'Meetup de Grok Bot en Villahermosa para conectar, compartir ideas y convivir con la comunidad tech.',
+    startsAt: '2026-09-03T00:00:00-06:00',
+    date: 'Jueves 3 de Septiembre 2026',
+    topics: ['IA', 'Grok Bot', 'Comunidad'],
+    location: 'LATI',
+    imageUrl: '/events/grok-bot-villahermosa-meetup.png',
+  },
   {
     id: '1',
     title: 'Cursor Meetup',
@@ -88,6 +99,16 @@ function EventCard({ event }: { event: Event }) {
 
   return (
     <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-[0_0_0_2px_var(--ring)] hover:shadow-[0_0_0_4px_var(--ring)/20]">
+      {event.imageUrl && (
+        <img
+          src={event.imageUrl}
+          alt={`Portada de ${event.title}`}
+          className="aspect-square w-full object-cover"
+          width={2560}
+          height={2560}
+          loading="lazy"
+        />
+      )}
       <CardHeader className="flex flex-col gap-2">
         <div className="flex flex-wrap items-center gap-2">
           {upcoming ? <Badge variant="default">Próximo</Badge> : <Badge variant="secondary">Pasado</Badge>}
