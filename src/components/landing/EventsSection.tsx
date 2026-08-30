@@ -9,6 +9,13 @@ import { isUpcoming } from '@/lib/events';
 
 const events = [
   {
+    title: 'Grok Bot Villahermosa Meetup',
+    startsAt: '2026-09-03T00:00:00-06:00',
+    date: 'Jueves 3 de Septiembre de 2026',
+    location: 'LATI',
+    imageUrl: '/events/grok-bot-villahermosa-meetup.png',
+  },
+  {
     title: 'Cursor Meetup',
     startsAt: '2026-05-30T13:00:00-06:00',
     date: 'Sábado 30 de Mayo a la 1:00 PM',
@@ -37,6 +44,16 @@ export function EventsSection() {
         {upcomingEvents.map((event) => (
           <Card key={event.title} className="overflow-hidden">
             <CardContent className="flex flex-col gap-4 p-4">
+              {'imageUrl' in event && (
+                <img
+                  src={event.imageUrl}
+                  alt={`Portada de ${event.title}`}
+                  className="aspect-square w-full rounded-sm object-cover"
+                  width={2560}
+                  height={2560}
+                  loading="lazy"
+                />
+              )}
               <div className="flex flex-col gap-2">
                 <h3 className="font-heading text-lg font-semibold">{event.title}</h3>
                 <p className="flex flex-wrap items-start gap-2 text-sm text-muted-foreground">
@@ -45,20 +62,24 @@ export function EventsSection() {
                 </p>
                 <p className="text-sm text-muted-foreground">{event.date}</p>
               </div>
-              <iframe
-                src={event.url}
-                className="w-full rounded-sm sm:h-[320px] h-[280px]"
-                style={{ border: '1px solid #bfcbda88' }}
-                allow="fullscreen; payment"
-                aria-hidden="false"
-                tabIndex={0}
-                title={`${event.title} - Registro`}
-              />
-              <Button asChild>
-                <a href={event.registerUrl} target="_blank" rel="noopener noreferrer">
-                  Registrarse
-                </a>
-              </Button>
+              {'url' in event && (
+                <iframe
+                  src={event.url}
+                  className="h-[280px] w-full rounded-sm sm:h-[320px]"
+                  style={{ border: '1px solid #bfcbda88' }}
+                  allow="fullscreen; payment"
+                  aria-hidden="false"
+                  tabIndex={0}
+                  title={`${event.title} - Registro`}
+                />
+              )}
+              {'registerUrl' in event && (
+                <Button asChild>
+                  <a href={event.registerUrl} target="_blank" rel="noopener noreferrer">
+                    Registrarse
+                  </a>
+                </Button>
+              )}
             </CardContent>
           </Card>
         ))}
